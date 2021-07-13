@@ -1,6 +1,7 @@
 import Test.Hspec
 import Test.QuickCheck
 
+-- First Solution
 
 isFizz :: Integer -> Bool
 isFizz x = x `mod` 3 == 0
@@ -17,6 +18,8 @@ fizzGenerator x
 
 data FizzBuzzResult = FizzBuzz | Fizz | Buzz | JustNumber Integer deriving (Eq, Show)
 
+-- Second Solution
+-- This solution doesn't have coupling by execution
 data FizzBuzzable' = FizzBuzz' | Fizz' Integer | Buzz' Integer | JustNumber' Integer deriving (Eq, Show)
 
 applyFizz :: FizzBuzzable' -> FizzBuzzable'
@@ -55,4 +58,3 @@ main = hspec $ do
    fizzGenerator' 5 == Buzz' 5
   it "execute return buzz" $ do
    fizzGenerator' 15 == FizzBuzz' 
-
